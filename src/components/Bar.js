@@ -1,10 +1,25 @@
 import React from "react";
 
+const nonCurrentDayClasses = `
+  w-8
+  sm:w-[50px]
+  bg-red
+  group-hover:bg-light-red
+  rounded-sm
+`;
+
+const currentDayClasses = `
+  w-8
+  sm:w-[50px]
+  bg-cyan
+  group-hover:bg-light-cyan
+  rounded-sm
+`;
+
 const Bar = ({ height, isCurrentDay }) => {
-  const bgColor = isCurrentDay ? "bg-cyan" : "bg-red";
   return (
     <div
-      className={`w-8 sm:w-[50px] ${bgColor} rounded-sm`}
+      className={isCurrentDay ? currentDayClasses : nonCurrentDayClasses}
       style={{ height: `${height}px` }}></div>
   );
 };

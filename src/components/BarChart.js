@@ -9,11 +9,14 @@ const BarChart = () => {
   const currentDay = weekday[currentDayInt];
 
   return (
-    <div className="flex justify-between items-end">
+    <div className="flex justify-between items-end pt-16">
       {data.map((data) => (
         <div
           key={data.day}
-          className="flex flex-col pt-8 items-center gap-3 sm:gap-2">
+          className="flex flex-col items-center gap-3 sm:gap-2 group cursor-pointer relative">
+          <div className="bg-dark-brown text-card-white p-2 rounded-[5px] font-bold group-hover:opacity-100 opacity-0 absolute -top-12 transition-opacity">
+            {data.amount}
+          </div>
           <Bar
             height={parseInt(data.amount * 3)}
             isCurrentDay={currentDay === data.day}
